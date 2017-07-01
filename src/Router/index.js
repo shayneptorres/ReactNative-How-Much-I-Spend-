@@ -6,6 +6,7 @@ import MainScene from "../Scenes/mainScene"
 
 // Stores
 import ListStore from "../Stores/listStore";
+import AddItemScene from "../Stores/addItemScene";
 
 class MainRouter extends Component {
     render() {
