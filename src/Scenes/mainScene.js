@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, View, Text, List } from "native-base";
+import { Container, Content, View, Text, List, ListItem } from "native-base";
 import { observer } from "mobx-react/native"
 
 import ListItemCell from "../Components/listItemCell";
@@ -20,11 +20,15 @@ class MainScene extends Component {
     }
 
     renderItems(){
-        return(
-            this.props.store.list.map((item, index) =>
-                <ListItemCell item={item} key={index}/>
+        if (this.props.store.list.length == 0){
+            return <ListItem><Text>You have no items, add one by tapping the button in the top right corner</Text></ListItem>
+        } else {
+            return(
+                this.props.store.list.map((item, index) =>
+                    <ListItemCell item={item} key={index}/>
+                )
             )
-        )
+        }
     }
 
     render() {
